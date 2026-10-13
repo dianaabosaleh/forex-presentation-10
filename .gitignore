@@ -1,0 +1,38 @@
+# Dependencies (none are needed today, but keep them out if added later)
+node_modules/
+.pnp
+.pnp.js
+
+# Environment files, credentials and keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.*
+credentials.*
+
+# Vercel and build output
+.vercel/
+.next/
+out/
+dist/
+build/
+
+# Logs and caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+.cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp

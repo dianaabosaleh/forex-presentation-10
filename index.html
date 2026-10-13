@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brainery Solutions">
+<meta property="og:description" content="Forex brokerage complete setup and pricing: company registration and licensing, Cyprus business presence, banking, compliance, MetaTrader 5, liquidity provider onboarding and Centroid bridge connection.">
+<meta property="og:image" content="/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Brainery Solutions</title>
+<meta name="description" content="Forex brokerage complete setup and pricing proposal: company registration and licensing, Cyprus business presence, banking, compliance, MetaTrader 5, liquidity provider onboarding and Centroid bridge connection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap">
+<style>
+/* Layout: one dark page on the logo's black field; the rust disc is the recurring motif.
+   Motion: desktop gets cursor parallax, magnetic CTAs and card spotlights; mobile gets lighter touch-friendly reveals. */
+:root {
+  --ink: #000000;          /* logo field */
+  --carbon: #120d0a;
+  --carbon-2: #1b1410;
+  --carbon-3: #261c16;
+  --rust: #80310f;         /* logo disc */
+  --rust-deep: #3d1707;
+  --ember: #dc551b;        /* BRAINERY wordmark */
+  --ember-bright: #f06a2c;
+  --paper: #ffffff;        /* signature script */
+  --bone: #e9e2dc;
+  --mist: #a89e97;
+  --smoke: #8c837c;
+  --line: rgba(255,255,255,.09);
+  --line-strong: rgba(255,255,255,.18);
+  --display: "Montserrat", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-io: cubic-bezier(.65,0,.35,1);
+  --gut: clamp(16px, 4.5vw, 40px);
+  --sec: clamp(64px, 9vw, 120px);
+  --rise: 28px;            /* reveal distance; smaller on phones */
+  color-scheme: dark;
+}
+@media (max-width: 640px) { :root { --rise: 16px; } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; background: var(--ink); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--body); font-size: clamp(15.5px, .35vw + 14.5px, 17.5px); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ember-bright); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--ember); color: var(--ink); }
+.wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: var(--gut); }
+@media (min-width: 1600px) { .wrap { max-width: 1400px; } }
+.display { font-family: var(--display); font-weight: 300; letter-spacing: -.015em; line-height: 1.08; text-wrap: balance; margin: 0; }
+.tnum { font-variant-numeric: tabular-nums lining-nums; }
+.muted { color: var(--mist); }
+.note { font-size: .85rem; color: var(--smoke); line-height: 1.55; margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Sections: a drawn hairline at the top of each replaces a static border */
+section { position: relative; padding-block: var(--sec); }
+section:not(.hero)::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--ember) 20%, var(--line-strong) 60%, transparent); transform-origin: left; transform: scaleX(1); transition: transform 1.4s var(--ease-io); }
+.js-anim section.pending-line::before { transform: scaleX(0); }
+.band { background: var(--carbon); }
+.sec-head { display: flex; align-items: baseline; gap: clamp(12px, 2vw, 20px); }
+.sec-num { font-family: var(--display); font-size: 1rem; color: var(--ember); min-width: 2ch; font-variant-numeric: tabular-nums; }
+.sec-head h2 { font-size: clamp(1.65rem, 3.3vw, 2.8rem); }
+.sec-body { margin-top: clamp(24px, 3vw, 36px); }
+@media (min-width: 900px) { .sec-body { margin-left: calc(2ch + 20px + 1rem); } }
+.lead { margin: 0 0 clamp(18px, 2.4vw, 28px); }
+
+/* Word-mask reveal used by the hero headline and section titles */
+.split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero h1 .w > span { transition-duration: 1.2s; transition-delay: calc(.12s + var(--i) * 75ms) !important; }
+.split .w > span { display: inline-block; transform: translateY(0); transition: transform 1s var(--ease); transition-delay: calc(var(--i) * 55ms); }
+.js-anim .split.pending .w > span { transform: translateY(105%); }
+
+/* Generic reveal variants; each section uses a different one */
+.rv { transition: opacity .9s var(--ease), transform 1s var(--ease), clip-path 1.1s var(--ease-io); transition-delay: calc(var(--d, 0) * 1ms); }
+.js-anim .rv.pending { opacity: 0; }
+.js-anim .rv.pending[data-rv="up"] { transform: translateY(var(--rise)); }
+.js-anim .rv.pending[data-rv="tilt"] { transform: perspective(900px) translateY(var(--rise)) rotateX(10deg); transform-origin: 50% 100%; }
+.js-anim .rv.pending[data-rv="left"] { transform: translateX(calc(var(--rise) * -2)); }
+.js-anim .rv.pending[data-rv="right"] { transform: translateX(calc(var(--rise) * 2)); }
+.js-anim .rv.pending[data-rv="clip"] { opacity: 1; clip-path: inset(100% 0 0 0 round 24px); transform: translateY(var(--rise)); }
+.rv[data-rv="clip"] { clip-path: inset(0 0 0 0 round 24px); }
+@media (max-width: 899px) { .js-anim .rv.pending[data-rv="left"], .js-anim .rv.pending[data-rv="right"] { transform: translateY(var(--rise)); } }
+
+/* Buttons */
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 26px; border-radius: 999px; border: 1px solid transparent; font-weight: 500; font-size: .95rem; cursor: pointer; background: none; white-space: nowrap; overflow: hidden; isolation: isolate; transition: background-color .3s var(--ease), border-color .3s, box-shadow .4s, transform .5s var(--ease); will-change: transform; }
+.btn::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); transform: translateX(-120%); transition: transform .9s var(--ease); }
+.btn .arrow { transition: transform .4s var(--ease); }
+.btn-primary { background: var(--ember); color: var(--ink); box-shadow: 0 0 0 0 rgba(220,85,27,.5); }
+.btn:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: var(--ember-bright); box-shadow: 0 14px 44px -12px rgba(220,85,27,.8); }
+  .btn:hover::after { transform: translateX(120%); }
+  .btn:hover .arrow { transform: translateY(2px); }
+}
+.btn-primary.pulse { animation: pulse 2.8s 2.6s var(--ease) 2; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(220,85,27,.38); } 70%, 100% { box-shadow: 0 0 0 18px rgba(220,85,27,0); } }
+
+/* Scroll progress */
+.progress { position: fixed; z-index: 60; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, var(--rust), var(--ember-bright)); transform-origin: left; transform: scaleX(0); pointer-events: none; }
+
+/* Nav */
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 50; padding-top: env(safe-area-inset-top, 0px); border-bottom: 1px solid transparent; transition: background-color .5s, border-color .5s, transform .5s var(--ease); }
+.nav.scrolled, .nav.open { background: rgba(0,0,0,.8); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); border-bottom-color: var(--line); }
+.nav.hide { transform: translateY(-100%); }
+.nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+@media (min-width: 1024px) { .nav-inner { height: 80px; } }
+.logo { width: clamp(138px, 34vw, 168px); }
+@media (min-width: 768px) { .logo { width: 190px; } }
+.nav-links { display: none; list-style: none; margin: 0; padding: 0; gap: clamp(2px, .6vw, 10px); }
+.nav-links a { position: relative; display: flex; align-items: center; min-height: 44px; padding: 0 12px; font-size: .9rem; color: var(--bone); transition: color .3s; }
+.nav-links a::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 8px; height: 1px; background: var(--ember); transform: scaleX(0); transform-origin: right; transition: transform .45s var(--ease); }
+.nav-links a:hover, .nav-links a.active { color: var(--paper); }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
+@media (min-width: 1100px) { .nav-links { display: flex; } .burger { display: none !important; } }
+.burger { position: relative; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-strong); background: rgba(0,0,0,.3); cursor: pointer; }
+.burger span { position: absolute; left: 14px; right: 14px; height: 1.5px; background: var(--paper); border-radius: 2px; transition: transform .5s var(--ease), opacity .3s; }
+.burger span:nth-child(1) { transform: translateY(-4px); }
+.burger span:nth-child(2) { transform: translateY(4px); right: 18px; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { transform: rotate(-45deg); right: 14px; }
+.menu { position: fixed; inset: 0; z-index: 45; padding: calc(96px + env(safe-area-inset-top, 0px)) var(--gut) calc(32px + env(safe-area-inset-bottom, 0px)); background: radial-gradient(120% 70% at 100% 0%, rgba(128,49,15,.55), transparent 60%), var(--ink); display: flex; flex-direction: column; overflow-y: auto; clip-path: circle(0 at calc(100% - var(--gut) - 23px) 36px); visibility: hidden; transition: clip-path .7s var(--ease-io), visibility 0s .7s; }
+.menu.open { clip-path: circle(150% at calc(100% - var(--gut) - 23px) 36px); visibility: visible; transition: clip-path .8s var(--ease-io), visibility 0s; }
+.menu ol { list-style: none; margin: 0; padding: 0; display: grid; }
+.menu li { border-bottom: 1px solid var(--line); overflow: hidden; }
+.menu a { display: flex; align-items: baseline; gap: 16px; min-height: 64px; padding-block: 14px; font-family: var(--display); font-weight: 300; font-size: clamp(1.5rem, 7vw, 2.2rem); transform: translateY(100%); transition: transform .7s var(--ease), color .3s; transition-delay: calc(.25s + var(--i) * 60ms); }
+.menu a small { font-family: var(--display); font-size: .85rem; color: var(--ember); font-weight: 400; min-width: 2.5ch; }
+.menu.open a { transform: none; }
+.menu a:active { color: var(--ember-bright); }
+.menu .disc-deco { margin-top: auto; align-self: flex-end; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 38% 34%, #9a3c13, var(--rust) 55%, var(--rust-deep)); opacity: 0; transform: scale(.6); transition: opacity .6s .5s, transform .9s .5s var(--ease); }
+.menu.open .disc-deco { opacity: 1; transform: none; }
+
+/* Hero */
+.hero { padding-top: calc(clamp(104px, 12vw, 136px) + env(safe-area-inset-top, 0px)); padding-bottom: clamp(56px, 7vw, 96px); overflow: hidden; isolation: isolate; }
+.aurora { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.aurora i { position: absolute; border-radius: 50%; will-change: transform; }
+.aurora i:nth-child(1) { width: 70vmax; height: 70vmax; right: -28vmax; top: -30vmax; background: radial-gradient(circle, rgba(128,49,15,.55), transparent 62%); animation: drift1 18s ease-in-out infinite alternate; }
+.aurora i:nth-child(2) { width: 55vmax; height: 55vmax; left: -26vmax; bottom: -32vmax; background: radial-gradient(circle, rgba(220,85,27,.18), transparent 60%); animation: drift2 22s ease-in-out infinite alternate; }
+.aurora i:nth-child(3) { width: 40vmax; height: 40vmax; left: 30%; top: 20%; background: radial-gradient(circle, rgba(128,49,15,.18), transparent 62%); animation: drift1 26s ease-in-out infinite alternate-reverse; }
+@keyframes drift1 { to { transform: translate3d(-8vmax, 6vmax, 0) scale(1.1); } }
+@keyframes drift2 { to { transform: translate3d(10vmax, -5vmax, 0) scale(1.15); } }
+.grid-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: radial-gradient(60% 60% at 70% 40%, #000, transparent 75%); mask-image: radial-gradient(60% 60% at 70% 40%, #000, transparent 75%); opacity: .5; }
+.hero-grid { display: grid; gap: clamp(36px, 6vw, 56px); align-items: center; }
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); } }
+.kicker { margin: 0; color: var(--ember); font-size: clamp(.82rem, 1vw, .95rem); display: inline-flex; align-items: center; gap: 10px; }
+.kicker::before { content: ""; width: 28px; height: 1px; background: var(--ember); transform-origin: left; animation: grow .9s .1s var(--ease) both; }
+@keyframes grow { from { transform: scaleX(0); } }
+.hero h1 { font-size: clamp(2.25rem, 4.6vw + .4rem, 4.2rem); margin-top: clamp(14px, 1.6vw, 20px); line-height: 1.04; }
+@media (min-width: 1024px) and (max-width: 1499px) { .hero h1 { font-size: clamp(2.8rem, 4.1vw, 3.9rem); } }
+.hero .lede { margin: clamp(18px, 2vw, 26px) 0 0; max-width: 52ch; font-size: clamp(1rem, .5vw + .9rem, 1.12rem); color: var(--bone); }
+.hero .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(26px, 3vw, 36px); }
+.hero .note { margin-top: 20px; }
+.in { animation: rise 1s var(--ease) both; }
+@keyframes rise { from { opacity: .01; transform: translateY(18px); } }
+
+/* Hero visual */
+.stage { position: relative; width: 100%; max-width: min(580px, calc((100vh - 200px) * 1.14)); margin-inline: auto; }
+@media (max-width: 1023px) { .stage { max-width: min(520px, 100%); } }
+.layer { position: absolute; inset: 0; will-change: transform; }
+.route { position: relative; aspect-ratio: 640 / 560; max-width: 100%; }
+.route svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.disc { transform-origin: 372px 282px; animation: disc 1.6s var(--ease) both; }
+@keyframes disc { from { transform: scale(.82); opacity: 0; } }
+.rings circle { transform-origin: 372px 282px; }
+.rings .spin { animation: spin 60s linear infinite; }
+.rings .spin.rev { animation-direction: reverse; animation-duration: 90s; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.route-path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2s .6s var(--ease-io) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.route-glow { stroke-dasharray: .12 .88; stroke-dashoffset: 1; opacity: 0; animation: flow 3.6s 2.6s linear infinite, fade .6s 2.6s forwards; }
+@keyframes flow { to { stroke-dashoffset: 0; } }
+.node { transform-box: fill-box; transform-origin: center; animation: pop .6s var(--ease) both; }
+@keyframes pop { from { transform: scale(.3); opacity: 0; } }
+.node .halo { transform-box: fill-box; transform-origin: center; animation: halo 2.6s 2.8s ease-out infinite; opacity: 0; }
+@keyframes halo { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(2.6); opacity: 0; } }
+.packet { opacity: 0; animation: fade .6s 2.4s forwards; }
+@keyframes fade { to { opacity: 1; } }
+.nlabel { position: absolute; white-space: nowrap; }
+.nlabel > div { background: rgba(0,0,0,.6); border: 1px solid var(--line); border-radius: 10px; padding: 6px 11px; font-weight: 500; font-size: clamp(.7rem, 1.5vw, .9rem); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+
+/* Floating glass cards around the disc */
+.float { position: absolute; border: 1px solid var(--line-strong); border-radius: 16px; background: rgba(18,13,10,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 30px 60px -20px #000; }
+.float.candles { left: -4%; top: 2%; width: clamp(150px, 34%, 200px); padding: 12px 12px 8px; animation: bob 7s ease-in-out infinite, rise 1s 1.3s var(--ease) both; }
+.float.candles p { margin: 0 0 6px; font-size: .68rem; color: var(--mist); display: flex; justify-content: space-between; }
+.float.candles p i { width: 6px; height: 6px; border-radius: 50%; background: var(--ember); align-self: center; animation: blink 1.6s ease-in-out infinite; }
+.float.candles svg { position: static; display: block; width: 100%; height: 64px; }
+.float.candles rect, .float.candles line { transform-box: fill-box; transform-origin: 50% 100%; animation: grow-y .7s var(--ease) both; animation-delay: calc(1.5s + var(--i) * 70ms); }
+@keyframes grow-y { from { transform: scaleY(0); } }
+.float.candles .live { animation: grow-y .7s var(--ease) both, breathe 2.4s 3s ease-in-out infinite; animation-delay: calc(1.5s + var(--i) * 70ms), 3s; }
+@keyframes breathe { 50% { transform: scaleY(.7); } }
+.float.accts { right: -2%; bottom: 4%; padding: 12px 16px; animation: bob 8s 1s ease-in-out infinite, rise 1s 1.6s var(--ease) both; }
+.float.accts b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(.95rem, 1.6vw, 1.15rem); }
+.float.accts span { font-size: .72rem; color: var(--mist); }
+@keyframes bob { 50% { translate: 0 -10px; } }
+@keyframes blink { 50% { opacity: .3; } }
+.glyph { position: absolute; font-family: var(--display); font-weight: 300; color: var(--ember); opacity: .0; pointer-events: none; animation: glyph 12s ease-in-out infinite, fade-g 1.2s 2s forwards; }
+.glyph.g1 { right: 2%; top: -2%; font-size: 2.4rem; animation-duration: 11s, 1.2s; }
+.glyph.g2 { left: 6%; bottom: 10%; font-size: 1.8rem; animation-duration: 14s, 1.2s; animation-delay: -4s, 2.2s; }
+.glyph.g3 { right: 30%; top: 44%; font-size: 1.3rem; animation-duration: 9s, 1.2s; animation-delay: -2s, 2.4s; }
+@keyframes glyph { 50% { translate: 6px -18px; rotate: 8deg; } }
+@keyframes fade-g { to { opacity: .35; } }
+@media (max-width: 640px) {
+  .float.candles { width: 132px; left: -2%; top: -4%; }
+  .float.candles svg { height: 46px; }
+  .float.accts { right: -1%; bottom: -2%; padding: 9px 12px; }
+  .glyph.g3 { display: none; }
+}
+
+/* Cards */
+.card { position: relative; padding: clamp(22px, 3vw, 34px); border: 1px solid var(--line); border-radius: 24px; background: var(--ink); min-width: 0; overflow: hidden; transition: border-color .4s, transform .6s var(--ease), box-shadow .6s var(--ease); }
+.card::after, .trio > article::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(220,85,27,.13), transparent 60%); opacity: 0; transition: opacity .4s; }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { border-color: var(--line-strong); transform: translateY(-4px); box-shadow: 0 40px 80px -40px rgba(128,49,15,.6); }
+  .card:hover::after, .trio > article:hover::after { opacity: 1; }
+}
+.card > * { position: relative; z-index: 1; }
+.options { display: grid; gap: clamp(14px, 2vw, 22px); }
+@media (min-width: 900px) { .options { grid-template-columns: 1fr 1fr; } }
+.card h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(1.35rem, 2.2vw, 1.65rem); line-height: 1.2; }
+.card .tag { margin: 0 0 6px; font-size: .88rem; color: var(--ember); }
+.price { display: grid; gap: 6px; margin: 18px 0; padding: 14px 18px; border-radius: 14px; background: var(--carbon-2); }
+.price div { display: flex; justify-content: space-between; gap: 14px; align-items: baseline; }
+.price dt { color: var(--mist); font-size: .9rem; min-width: 0; }
+.price dd { margin: 0; font-size: clamp(1rem, 1.4vw, 1.15rem); flex: none; text-align: right; }
+@media (max-width: 400px) { .price div { flex-direction: column; gap: 0; } .price dd { text-align: left; } }
+.card p { margin: 0; color: var(--bone); }
+.card p + p { margin-top: 12px; }
+.card .caveat { color: var(--mist); font-size: .9rem; }
+.option-disc { position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 38% 34%, rgba(154,60,19,.5), rgba(128,49,15,.12) 60%, transparent 70%); pointer-events: none; z-index: 0 !important; transition: transform 1s var(--ease); }
+.card:hover .option-disc { transform: scale(1.25) translate(-10px, 10px); }
+
+/* 02–04 */
+.trio { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+@media (min-width: 900px) { .trio { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 640px) and (max-width: 899px) { .trio { grid-template-columns: 1fr 1fr; } .trio > article:last-child { grid-column: 1 / -1; } }
+.trio > article { position: relative; background: var(--ink); padding: clamp(22px, 3vw, 34px); display: flex; flex-direction: column; gap: 14px; min-width: 0; overflow: hidden; }
+.trio > article > * { position: relative; z-index: 1; }
+.trio h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(1.25rem, 2vw, 1.45rem); line-height: 1.2; }
+.trio p { margin: 0; color: var(--bone); }
+.trio .fee { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+.trio .fee b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(1.45rem, 2.4vw, 1.75rem); }
+.trio .fee span { color: var(--mist); font-size: .88rem; }
+.duo { display: grid; gap: clamp(14px, 2vw, 22px); }
+@media (min-width: 900px) { .duo { grid-template-columns: 1fr 1fr; } }
+.duo .card { display: flex; flex-direction: column; gap: 14px; }
+.duo h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(1.35rem, 2.2vw, 1.65rem); line-height: 1.2; }
+.duo .price { margin: 4px 0; }
+
+/* Decorative market line behind section 05 */
+.market-line { position: absolute; left: 0; right: 0; bottom: 0; height: 70%; pointer-events: none; opacity: .5; }
+.market-line path { stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 2.6s var(--ease-io); }
+.js-anim .market-line.pending path { stroke-dashoffset: 1; }
+#mt5 .wrap, #costs .wrap { position: relative; }
+#licensing, #costs { overflow: hidden; }
+
+/* Tables */
+.tbl-wrap { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: rgba(0,0,0,.35); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 16px clamp(14px, 2vw, 22px); text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; transition: background-color .35s; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+thead th { font-weight: 400; font-size: .88rem; color: var(--mist); background: var(--carbon-2); }
+tbody tr:last-child td { border-bottom: 0; }
+#mt5-table tbody tr { cursor: pointer; transition: transform .5s var(--ease); }
+#mt5-table tbody tr:hover td { background: rgba(255,255,255,.03); }
+#mt5-table tbody tr.sel td { background: rgba(128,49,15,.28); }
+#mt5-table tbody tr.sel td:first-child { box-shadow: inset 3px 0 0 var(--ember); }
+#mt5-table .rv.pending { opacity: 0; }
+td.on, th.on { background: rgba(128,49,15,.24); }
+tr.total td { font-weight: 500; }
+tr.grand td { background: var(--rust); color: var(--paper); font-family: var(--display); font-size: clamp(1rem, 1.5vw, 1.15rem); }
+tr.grand td.on { background: #93391a; }
+.pkg-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(8px, 1.2vw, 12px); margin-bottom: 18px; }
+.pkg-cols button { position: relative; padding: 14px; border-radius: 14px; border: 1px solid var(--line); background: none; cursor: pointer; text-align: left; overflow: hidden; transition: border-color .3s, transform .4s var(--ease); }
+.pkg-cols button::before { content: ""; position: absolute; inset: 0; background: var(--rust); transform: scaleY(0); transform-origin: bottom; transition: transform .5s var(--ease); z-index: -1; }
+.pkg-cols button { isolation: isolate; }
+.pkg-cols button:hover { border-color: var(--line-strong); }
+.pkg-cols button[aria-pressed="true"] { border-color: var(--rust); }
+.pkg-cols button[aria-pressed="true"]::before { transform: scaleY(1); }
+.pkg-cols b { display: block; font-weight: 500; }
+.pkg-cols span { display: block; font-size: .8rem; color: var(--mist); }
+.pkg-cols button[aria-pressed="true"] span { color: rgba(255,255,255,.82); }
+@media (max-width: 420px) { .pkg-cols button { padding: 11px 10px; } .pkg-cols span { font-size: .7rem; white-space: nowrap; letter-spacing: -.01em; } }
+
+/* Phones: MT5 table becomes stacked rows; cost table shows the chosen package only */
+@media (max-width: 640px) {
+  #mt5-table thead { display: none; }
+  #mt5-table tr { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px 12px; padding: 16px; border-bottom: 1px solid var(--line); }
+  #mt5-table tbody tr:last-child { border-bottom: 0; }
+  #mt5-table td { padding: 0; border: 0; text-align: left; background: none !important; box-shadow: none !important; }
+  #mt5-table td:first-child { grid-column: 1 / -1; font-family: var(--display); font-size: 1.2rem; margin-bottom: 6px; }
+  #mt5-table td:not(:first-child)::before { content: attr(data-label); display: block; font-size: .72rem; color: var(--mist); }
+  #mt5-table tbody tr.sel { background: rgba(128,49,15,.28); box-shadow: inset 3px 0 0 var(--ember); }
+  #cost-table th:not(:first-child):not(.on), #cost-table td:not(:first-child):not(.on) { display: none; }
+  #cost-table td.on, #cost-table th.on { background: none; }
+  #cost-table tr.grand td { background: var(--rust); }
+}
+.dots { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+@media (min-width: 768px) { .dots { grid-template-columns: 1fr 1fr; column-gap: 32px; } }
+.dots li { display: flex; gap: 12px; color: var(--bone); }
+.dots li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: .65em; border-radius: 50%; background: var(--ember); }
+.clar { margin: 20px 0 0; padding: 16px 20px; border: 1px solid var(--line); border-left: 2px solid var(--ember); border-radius: 14px; font-size: .9rem; color: var(--mist); }
+.clar b { color: var(--bone); font-weight: 500; }
+.excl-title { font-size: clamp(1.3rem, 2vw, 1.5rem); margin-top: clamp(36px, 5vw, 52px); }
+
+/* Parallax deco disc in banded sections */
+.deco-disc { position: absolute; right: -10vw; top: 10%; width: 34vw; height: 34vw; max-width: 520px; max-height: 520px; border-radius: 50%; background: radial-gradient(circle at 38% 34%, rgba(154,60,19,.16), rgba(128,49,15,.05) 60%, transparent 70%); pointer-events: none; will-change: transform; }
+@media (max-width: 899px) { .deco-disc { display: none; } }
+
+footer { padding-block: 40px calc(40px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); }
+.foot { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+.foot p { margin: 0; font-size: .85rem; color: var(--smoke); }
+.foot a.top { font-size: .85rem; color: var(--bone); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; transition: color .3s; }
+.foot a.top svg { transition: transform .4s var(--ease); }
+.foot a.top:hover { color: var(--paper); }
+.foot a.top:hover svg { transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  .route-path { stroke-dashoffset: 0; }
+  .packet, .route-glow, .halo, .glyph, .aurora i { display: none; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <nav class="wrap nav-inner" aria-label="Main">
+    <a href="#top" aria-label="Brainery Solutions, back to top"><img class="logo" fetchpriority="high" src="assets/brainery-logo.png" alt="Brainery Solutions" width="617" height="236"></a>
+    <ul class="nav-links">
+      <li><a href="#licensing">Licensing</a></li>
+      <li><a href="#services">Business setup</a></li>
+      <li><a href="#mt5">MetaTrader 5</a></li>
+      <li><a href="#liquidity">Liquidity &amp; bridge</a></li>
+      <li><a href="#costs">Fixed costs</a></li>
+    </ul>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </nav>
+</header>
+<div class="menu" id="menu" aria-hidden="true">
+  <ol>
+    <li><a href="#licensing" style="--i:0"><small>01</small>Licensing</a></li>
+    <li><a href="#services" style="--i:1"><small>02</small>Business setup</a></li>
+    <li><a href="#mt5" style="--i:2"><small>05</small>MetaTrader 5</a></li>
+    <li><a href="#liquidity" style="--i:3"><small>06</small>Liquidity &amp; bridge</a></li>
+    <li><a href="#costs" style="--i:4"><small>08</small>Fixed costs</a></li>
+  </ol>
+  <span class="disc-deco" aria-hidden="true"></span>
+</div>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker in">Client Service Selection &amp; Financial Overview</p>
+      <h1 class="display split" id="hero-title" data-split="hero">Forex brokerage complete setup &amp; pricing</h1>
+      <p class="lede in" style="animation-delay:.55s">The services available to establish and operate a Forex brokerage, from company incorporation and licensing support through business presence, banking, compliance, MetaTrader&nbsp;5, liquidity onboarding and trading infrastructure.</p>
+      <div class="btn-row in" style="animation-delay:.7s">
+        <a class="btn btn-primary pulse magnetic" href="#licensing">View services <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+      </div>
+      <p class="note in" style="animation-delay:.85s">All prices are in USD unless otherwise specified.</p>
+    </div>
+
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="route">
+        <div class="layer" data-depth="10">
+          <svg viewBox="0 0 640 560">
+            <defs>
+              <radialGradient id="dg" cx="38%" cy="34%" r="75%"><stop offset="0" stop-color="#9a3c13"/><stop offset=".55" stop-color="#80310f"/><stop offset="1" stop-color="#3d1707"/></radialGradient>
+              <radialGradient id="gg"><stop offset="0" stop-color="#dc551b" stop-opacity=".35"/><stop offset="1" stop-color="#dc551b" stop-opacity="0"/></radialGradient>
+            </defs>
+            <circle cx="372" cy="282" r="330" fill="url(#gg)"/>
+            <circle class="disc" cx="372" cy="282" r="228" fill="url(#dg)"/>
+            <g class="rings" fill="none" stroke="#fff">
+              <circle cx="372" cy="282" r="262" stroke-opacity=".07"/>
+              <circle class="spin" cx="372" cy="282" r="300" stroke-opacity=".08" stroke-dasharray="2 9"/>
+              <circle class="spin rev" cx="372" cy="282" r="340" stroke-opacity=".05" stroke-dasharray="40 20 4 20"/>
+            </g>
+          </svg>
+        </div>
+        <div class="layer" data-depth="22">
+          <svg viewBox="0 0 640 560">
+            <path id="rt" class="route-path" pathLength="1" d="M 54 430 C 150 430 170 262 262 258 C 352 254 338 392 428 372 C 512 352 492 168 584 132" fill="none" stroke="#fff" stroke-width="2.25" stroke-linecap="round"/>
+            <path class="route-glow" pathLength="1" d="M 54 430 C 150 430 170 262 262 258 C 352 254 338 392 428 372 C 512 352 492 168 584 132" fill="none" stroke="#f06a2c" stroke-width="4" stroke-linecap="round"/>
+            <g class="node" style="animation-delay:.8s"><circle cx="54" cy="430" r="13" fill="#000" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/><circle cx="54" cy="430" r="4.5" fill="#fff"/></g>
+            <g class="node" style="animation-delay:1.2s"><circle class="halo" cx="262" cy="258" r="13" fill="none" stroke="#dc551b"/><circle cx="262" cy="258" r="13" fill="#000" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/><circle cx="262" cy="258" r="4.5" fill="#dc551b"/></g>
+            <g class="node" style="animation-delay:1.6s"><circle class="halo" cx="428" cy="372" r="13" fill="none" stroke="#dc551b" style="animation-delay:3.4s"/><circle cx="428" cy="372" r="13" fill="#000" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/><circle cx="428" cy="372" r="4.5" fill="#dc551b"/></g>
+            <g class="node" style="animation-delay:2s"><circle class="halo" cx="584" cy="132" r="13" fill="none" stroke="#dc551b" style="animation-delay:4s"/><circle cx="584" cy="132" r="13" fill="#000" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/><circle cx="584" cy="132" r="4.5" fill="#dc551b"/></g>
+            <g class="packet">
+              <circle r="9" fill="#dc551b" opacity=".25"><animateMotion dur="4.2s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .55 1"><mpath href="#rt"/></animateMotion></circle>
+              <circle r="4" fill="#f06a2c"><animateMotion dur="4.2s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .55 1"><mpath href="#rt"/></animateMotion></circle>
+            </g>
+          </svg>
+          <div class="nlabel" style="left:40.94%;top:46.07%;transform:translate(-50%,calc(-100% - 20px))"><div class="in" style="animation-delay:1.35s">MetaTrader 5</div></div>
+          <div class="nlabel" style="left:66.88%;top:66.43%;transform:translate(-50%,20px)"><div class="in" style="animation-delay:1.75s">Bridge · Centroid</div></div>
+          <div class="nlabel" style="left:91.25%;top:23.57%;transform:translate(-80%,calc(-100% - 20px))"><div class="in" style="animation-delay:2.15s">Liquidity provider</div></div>
+        </div>
+        <div class="layer" data-depth="40">
+          <div class="float candles">
+            <p><span>Illustrative</span><i></i></p>
+            <svg viewBox="0 0 140 64" id="mini"></svg>
+          </div>
+          <div class="float accts">
+            <b class="tnum">1,000 – 200,000</b>
+            <span>Real accounts</span>
+          </div>
+          <span class="glyph g1">€</span><span class="glyph g2">$</span><span class="glyph g3">€</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="band" id="licensing" aria-labelledby="s1">
+  <span class="deco-disc" data-speed="-0.08" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num rv" data-rv="up">01</span><h2 class="display split" id="s1">Company registration &amp; licensing</h2></div>
+    <div class="sec-body">
+      <p class="muted lead rv" data-rv="up" style="--d:150">Select one jurisdiction.</p>
+      <div class="options">
+        <article class="card rv spot" data-rv="clip" style="--d:100">
+          <span class="option-disc" aria-hidden="true"></span>
+          <p class="tag">Option A</p>
+          <h3>Saint Lucia</h3>
+          <dl class="price tnum">
+            <div><dt>Initial incorporation and setup</dt><dd>$9,000 one-time</dd></div>
+            <div><dt>Annual renewal</dt><dd>$1,900</dd></div>
+          </dl>
+          <p>Includes incorporation, registered office, registered agent, company documentation and forex-related legal opinion verification.</p>
+          <p class="caveat">This package covers incorporation and legal opinion services, not issuance of a separate regulated forex brokerage licence.</p>
+        </article>
+        <article class="card rv spot" data-rv="clip" style="--d:260">
+          <span class="option-disc" aria-hidden="true"></span>
+          <p class="tag">Option B</p>
+          <h3>Comoros (Mwali)</h3>
+          <dl class="price tnum">
+            <div><dt>Incorporation and licence application, incl. first-year regulatory fees</dt><dd>€30,500</dd></div>
+            <div><dt>Annual renewal from year two</dt><dd>€19,500</dd></div>
+          </dl>
+          <p>Includes application preparation, documentation, regulatory submission and coordination.</p>
+          <p class="caveat">Licence issuance is subject to regulatory approval.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02–04 -->
+<section id="services" aria-label="Business presence, banking and compliance">
+  <div class="wrap">
+    <div class="trio">
+      <article class="rv spot" data-rv="tilt" style="--d:0" aria-labelledby="s2">
+        <span class="sec-num">02</span>
+        <h2 id="s2">Cyprus business presence &amp; landline</h2>
+        <p>Arrangement of a serviced business office in Cyprus, dedicated business address and landline, office coordination and supporting business-presence documentation for operational setup and MetaQuotes application requirements.</p>
+        <div class="fee tnum"><b data-count>€4,500</b><span>Annual payment</span></div>
+      </article>
+      <article class="rv spot" data-rv="tilt" style="--d:140" aria-labelledby="s3">
+        <span class="sec-num">03</span>
+        <h2 id="s3">Banking / payment account</h2>
+        <p>Assistance with the company banking/payment account application and coordination of the payment process with MetaQuotes.</p>
+        <div class="fee tnum"><b data-count>0.7%</b><span>Monthly banking service fee, of the selected MetaQuotes monthly payment. Account-opening fee: subject to quotation.</span></div>
+      </article>
+      <article class="rv spot" data-rv="tilt" style="--d:280" aria-labelledby="s4">
+        <span class="sec-num">04</span>
+        <h2 id="s4">Compliance documentation</h2>
+        <p>Preparation and coordination of agreed compliance documentation, including applicable AML/KYC policies and procedures.</p>
+        <div class="fee tnum"><b data-count>$1,500</b><span>One-time fee. Additional regulatory or provider-specific requirements will be quoted separately.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="band" id="mt5" aria-labelledby="s5" style="overflow:hidden">
+  <svg class="market-line rv-line" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" d="M0 240 C 120 230 160 170 260 180 S 420 250 520 200 S 660 90 760 120 S 920 210 1020 150 S 1200 60 1300 80 S 1400 40 1440 30" fill="none" stroke="#dc551b" stroke-opacity=".35" stroke-width="1.5"/>
+    <path pathLength="1" d="M0 270 C 140 260 200 220 300 230 S 460 280 560 240 S 700 160 800 180 S 960 250 1060 200 S 1240 120 1340 130 S 1420 100 1440 90" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1"/>
+  </svg>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num rv" data-rv="up">05</span><h2 class="display split" id="s5">MetaQuotes / MetaTrader 5</h2></div>
+    <div class="sec-body">
+      <p class="muted lead rv" data-rv="up" style="--d:150">Select one indicative MT5 licence package.</p>
+      <div class="tbl-wrap rv" data-rv="up" style="--d:200">
+        <table class="tnum" id="mt5-table">
+          <thead><tr><th scope="col">Package</th><th scope="col">Real accounts</th><th scope="col">Monthly</th><th scope="col">Annual</th></tr></thead>
+          <tbody>
+            <tr data-pkg="entry" class="rv" data-rv="left" style="--d:350" tabindex="0"><td>Entry</td><td data-label="Real accounts">1,000</td><td data-label="Monthly">$10,000</td><td data-label="Annual">$120,000</td></tr>
+            <tr data-pkg="standard" class="rv" data-rv="left" style="--d:470" tabindex="0"><td>Standard</td><td data-label="Real accounts">25,000</td><td data-label="Monthly">$15,000</td><td data-label="Annual">$180,000</td></tr>
+            <tr data-pkg="enterprise" class="rv" data-rv="left" style="--d:590" tabindex="0"><td>Enterprise</td><td data-label="Real accounts">200,000</td><td data-label="Monthly">$20,000</td><td data-label="Annual">$240,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note rv" data-rv="up" style="margin-top:16px;--d:300">Prices and capacities are indicative commercial planning figures. Final pricing, eligibility and account limits require a formal MetaQuotes quotation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06–07 -->
+<section id="liquidity" aria-label="Liquidity provider onboarding and bridge connection">
+  <div class="wrap">
+    <div class="duo">
+      <article class="card rv spot" data-rv="left" aria-labelledby="s6">
+        <span class="sec-num">06</span>
+        <h2 id="s6">Liquidity provider onboarding</h2>
+        <p>Support includes opening the LP account, negotiating commercial terms, obtaining spreads, trading symbols, contract specifications, expiry and market holiday schedules, and coordinating integration with the trading infrastructure.</p>
+        <dl class="price tnum">
+          <div><dt>Onboarding service fee</dt><dd>FREE</dd></div>
+          <div><dt>Initial liquidity deposit</dt><dd>from $50,000</dd></div>
+        </dl>
+        <p class="caveat">Final deposit, trading costs, margin requirements and withdrawal conditions are subject to the LP agreement.</p>
+      </article>
+      <article class="card rv spot" data-rv="right" style="--d:120" aria-labelledby="s7">
+        <span class="sec-num">07</span>
+        <h2 id="s7">Bridge connection — Centroid</h2>
+        <p>The bridge connects MetaTrader to the liquidity provider and supports execution and risk-management infrastructure.</p>
+        <dl class="price tnum">
+          <div><dt>Fixed monthly bridge subscription</dt><dd>$3,000</dd></div>
+          <div><dt>Trading volume charge</dt><dd>$0.20 per lot</dd></div>
+        </dl>
+        <p class="caveat">Final pricing and billable trading-volume definitions are subject to the provider agreement.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="band" id="costs" aria-labelledby="s8">
+  <span class="deco-disc" data-speed="-0.06" style="top:auto;bottom:-10%;left:-12vw;right:auto" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num rv" data-rv="up">08</span><h2 class="display split" id="s8">Fixed operating cost overview</h2></div>
+    <div class="sec-body">
+      <div class="pkg-cols rv" data-rv="up" style="--d:150" role="group" aria-label="Highlight a package">
+        <button type="button" data-pick="entry" aria-pressed="false"><b>Entry</b><span class="tnum">$13,700 / month</span></button>
+        <button type="button" data-pick="standard" aria-pressed="false"><b>Standard</b><span class="tnum">$19,050 / month</span></button>
+        <button type="button" data-pick="enterprise" aria-pressed="false"><b>Enterprise</b><span class="tnum">$24,400 / month</span></button>
+      </div>
+      <div class="tbl-wrap rv" data-rv="clip" style="--d:250">
+        <table class="tnum" id="cost-table">
+          <thead><tr><th scope="col">Service</th><th scope="col">Entry</th><th scope="col">Standard</th><th scope="col">Enterprise</th></tr></thead>
+          <tbody>
+            <tr><td>MetaQuotes monthly</td><td>$10,000</td><td>$15,000</td><td>$20,000</td></tr>
+            <tr><td>Banking service (labelled 0.7%)</td><td>$700</td><td>$1,050</td><td>$1,400</td></tr>
+            <tr><td>Centroid monthly</td><td>$3,000</td><td>$3,000</td><td>$3,000</td></tr>
+            <tr class="total"><td>Total monthly fixed</td><td data-count>$13,700</td><td data-count>$19,050</td><td data-count>$24,400</td></tr>
+            <tr class="total grand"><td>Total annual fixed</td><td data-count>$164,400</td><td data-count>$228,600</td><td data-count>$292,800</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="display split excl-title">Exclusions &amp; commercial notes</h3>
+      <ul class="dots">
+        <li class="rv" data-rv="up" style="--d:0">Company incorporation and renewal/licensing costs</li>
+        <li class="rv" data-rv="up" style="--d:60">Cyprus office and landline (€4,500 annually)</li>
+        <li class="rv" data-rv="up" style="--d:120">Compliance documentation ($1,500 one-time)</li>
+        <li class="rv" data-rv="up" style="--d:180">Liquidity deposit (starting at $50,000)</li>
+        <li class="rv" data-rv="up" style="--d:240">Bridge volume fees ($0.20 per lot)</li>
+        <li class="rv" data-rv="up" style="--d:300">Banking account-opening charges</li>
+        <li class="rv" data-rv="up" style="--d:360">Other operational or provider-specific expenses</li>
+      </ul>
+      <p class="note rv" data-rv="up" style="margin-top:20px;--d:200">EUR-denominated charges are not converted to USD. All third-party approvals, agreements and final quotations remain subject to the relevant providers and authorities.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/brainery-logo.png" alt="Brainery Solutions" width="617" height="236" style="width:170px" loading="lazy">
+    <p>© <span id="year">2026</span> Brainery Solutions®</p>
+    <a class="top" href="#top">Back to top <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const desktop = matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1024px)");
+  const canAnimate = !reduce && "IntersectionObserver" in window;
+  $("#year").textContent = new Date().getFullYear();
+
+  if (canAnimate) document.documentElement.classList.add("js-anim");
+
+  /* ---- Split headings into masked words ---- */
+  $$("[data-split], .split").forEach((el) => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.setAttribute("aria-label", el.textContent.trim());
+    el.innerHTML = words.map((w, i) => `<span class="w" aria-hidden="true"><span style="--i:${i}">${w.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</span></span>`).join(" ");
+  });
+
+  /* ---- Mini illustrative candles (shape only, no prices) ---- */
+  (() => {
+    const svg = $("#mini"); let p = 32, out = "";
+    for (let i = 0; i < 12; i++) {
+      const d = Math.sin(i * .9 + 1) * 6 + Math.cos(i * 1.7) * 3 + 1.2, o = p, c = p + d;
+      const hi = Math.max(o, c) + 3, lo = Math.min(o, c) - 3, x = 6 + i * 11, up = c >= o, col = up ? "#dc551b" : "#8c837c";
+      const y = (v) => 60 - (v - 10) * 1.1;
+      out += `<line x1="${x}" x2="${x}" y1="${y(hi)}" y2="${y(lo)}" stroke="${col}" stroke-width="1" style="--i:${i}"/>`;
+      out += `<rect x="${x - 3}" y="${y(Math.max(o, c))}" width="6" height="${Math.max(2, Math.abs(d) * 1.1)}" rx="1" fill="${up ? col : "none"}" stroke="${col}" style="--i:${i}" ${i === 11 ? 'class="live"' : ""}/>`;
+      p = c;
+    }
+    svg.innerHTML = out;
+  })();
+
+  /* ---- Reveal on scroll: only elements below the fold at load start hidden ---- */
+  if (canAnimate) {
+    const h1 = $("#hero-title");
+    h1.classList.add("pending");
+    requestAnimationFrame(() => requestAnimationFrame(() => h1.classList.remove("pending")));
+    const fold = innerHeight * .92;
+    const targets = $$(".rv, .split:not([data-split]), .market-line, section:not(.hero)");
+    // Clipped elements have no visible area to intersect, so they are watched through their parent.
+    const watch = new Map();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        (watch.get(e.target) || []).forEach((el) => {
+          el.classList.remove("pending", "pending-line");
+          if (el.matches(".rv")) $$("[data-count]", el).forEach(countUp);
+        });
+        watch.delete(e.target);
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0 });
+    targets.forEach((el) => {
+      if (el.getBoundingClientRect().top < fold) return;
+      el.classList.add(el.tagName === "SECTION" ? "pending-line" : "pending");
+      const key = el.dataset.rv === "clip" ? el.parentElement : el;
+      if (!watch.has(key)) { watch.set(key, []); io.observe(key); }
+      watch.get(key).push(el);
+    });
+  }
+
+  /* ---- Count-up for figures; text is always correct at rest ---- */
+  function countUp(el) {
+    if (reduce || el.dataset.done) return;
+    el.dataset.done = 1;
+    const final = el.textContent, m = final.match(/^([^\d]*)([\d,]+(?:\.\d+)?)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[2].replace(/,/g, "")), dec = (m[2].split(".")[1] || "").length;
+    const fmt = (v) => m[1] + v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec }) + m[3];
+    const t0 = performance.now(), dur = 1400;
+    const tick = (t) => {
+      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 4);
+      el.textContent = k < 1 ? fmt(target * e) : final;
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  /* ---- Nav: scrolled state, hide on scroll down (phones), active link, progress ---- */
+  const nav = $("#nav"), bar = $("#progress"), links = $$(".nav-links a");
+  let lastY = scrollY, ticking = false;
+  const sections = links.map((a) => $(a.getAttribute("href")));
+  const parallax = $$("[data-speed]");
+  function onScrollFrame() {
+    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    nav.classList.toggle("scrolled", y > 24);
+    if (!menu.classList.contains("open")) nav.classList.toggle("hide", innerWidth < 1100 && y > 400 && y > lastY + 4);
+    if (y < lastY - 4) nav.classList.remove("hide");
+    lastY = y;
+    bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    let cur = -1;
+    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * .4) cur = i; });
+    links.forEach((a, i) => a.classList.toggle("active", i === cur));
+    if (!reduce && desktop.matches) parallax.forEach((el) => {
+      const r = el.parentElement.getBoundingClientRect();
+      el.style.transform = `translate3d(0, ${(r.top + r.height / 2 - innerHeight / 2) * parseFloat(el.dataset.speed)}px, 0)`;
+    });
+    ticking = false;
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScrollFrame); } }, { passive: true });
+
+  /* ---- Mobile menu ---- */
+  const burger = $("#burger"), menu = $("#menu");
+  function setMenu(open) {
+    menu.classList.toggle("open", open);
+    menu.setAttribute("aria-hidden", String(!open));
+    nav.classList.toggle("open", open);
+    nav.classList.remove("hide");
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    $$("a", menu).forEach((a) => (a.tabIndex = open ? 0 : -1));
+    if (open) setTimeout(() => $("a", menu).focus({ preventScroll: true }), 300);
+  }
+  $$("a", menu).forEach((a) => (a.tabIndex = -1));
+  burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  menu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); burger.focus(); } });
+  addEventListener("resize", () => { if (innerWidth >= 1100 && menu.classList.contains("open")) setMenu(false); });
+  onScrollFrame();
+
+  /* ---- Package highlight: MT5 table, cost table columns and buttons stay in sync ---- */
+  const order = ["entry", "standard", "enterprise"];
+  function pick(id) {
+    $$("#mt5-table tbody tr").forEach((r) => { r.classList.toggle("sel", r.dataset.pkg === id); r.setAttribute("aria-selected", String(r.dataset.pkg === id)); });
+    $$("[data-pick]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.pick === id)));
+    const col = order.indexOf(id) + 1;
+    $$("#cost-table tr").forEach((r) => [...r.children].forEach((c, i) => c.classList.toggle("on", i === col)));
+  }
+  $$("[data-pick]").forEach((b) => b.addEventListener("click", () => pick(b.dataset.pick)));
+  $$("#mt5-table tbody tr").forEach((r) => {
+    r.addEventListener("click", () => pick(r.dataset.pkg));
+    r.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(r.dataset.pkg); } });
+  });
+  pick("entry");
+
+  /* ---- Desktop-only: cursor parallax, magnetic CTA, card spotlight ---- */
+  function enableDesktop() {
+    if (reduce || !desktop.matches || enableDesktop.on) return;
+    enableDesktop.on = true;
+    const stage = $("#stage"), layers = $$(".layer", stage), hero = $(".hero");
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+    const loop = () => {
+      cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+      layers.forEach((l) => { const d = +l.dataset.depth; l.style.transform = `translate3d(${cx * d}px, ${cy * d}px, 0)`; });
+      raf = Math.abs(tx - cx) + Math.abs(ty - cy) > .001 ? requestAnimationFrame(loop) : 0;
+    };
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - .5; ty = (e.clientY - r.top) / r.height - .5;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    hero.addEventListener("pointerleave", () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(loop); });
+
+    $$(".magnetic").forEach((b) => {
+      b.addEventListener("pointermove", (e) => {
+        const r = b.getBoundingClientRect();
+        b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`;
+      });
+      b.addEventListener("pointerleave", () => { b.style.transform = ""; });
+    });
+
+    $$(".spot").forEach((c) => c.addEventListener("pointermove", (e) => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      c.style.setProperty("--my", `${e.clientY - r.top}px`);
+    }));
+  }
+  enableDesktop();
+  desktop.addEventListener?.("change", enableDesktop);
+})();
+</script>
+
+</body>
+</html>
